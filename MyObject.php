@@ -51,7 +51,20 @@ class WorkoutTracker {
         return $this->exerciseName;
     }
 
-   
+   // Method: Accepts an array of workouts and returns an HTML list of names
+public function getExerciseNamesList($myWorkouts) {
+    $output = "<h3>--- My Exercises ---</h3><ul>";
+    
+    // The loop code is now safely inside the function body!
+    foreach ($myWorkouts as $workout) {
+        // Use the object's property to get the name
+        $output .= "<li>" . $workout->exerciseName . "</li>";
+    }
+    
+    $output .= "</ul>";
+    return $output;
+}
+
 
 
      // Method 4: Decision logic (AI Generated)
@@ -110,6 +123,14 @@ echo "Intensity Level: " . $workout3->evaluateIntensity() . "<br>";
 
 echo "<hr>";
 
+// Create Object 4
+$workout4 = new WorkoutTracker("Squats", 5, 10, 10);
+echo $workout4->getSummary();
+echo "Total volume lifted. " . $workout4->calculateTotalVolume() . " lbs<br>";
+echo "Intensity Level: " . $workout4->evaluateIntensity() . "<br>";
+
+echo "<hr>";
+
 // Test changing a property value for $wokout1. completeWorkout() function will make the workout completed.
 echo "Updating (workout 1) Bench Press status...<br>";
 $workout1->completeWorkout();
@@ -136,25 +157,29 @@ echo "Intensity Level: " . $workout3->evaluateIntensity() . "| in LBs: " .  $wor
 
 echo "<hr>";
 
-echo "<p> Total workouts done: </p>";
-echo  "<li>" . $workout1->exerciseName . "</li>" ;
-echo  "<li>" . $workout2->exerciseName . "</li> ";
-echo  "<li>" . $workout3->exerciseName . "</li> ";
-echo"<br>";
+echo "Updating (workout 4) Squats status...<br>";
+$workout4->completeWorkout();
+echo $workout4->getSummary();
+echo "Total Volume Lifted: " . $workout4->calculateTotalVolume() . " lbs<br>";
+echo "Intensity Level: " . $workout4->evaluateIntensity() . "| in LBs: " .  $workout4->weightInLbs ;
+
+echo "<hr>";
+
 echo "<p>Total Volume Lifted. </p>";
-$total = $workout1->calculateTotalVolume() + $workout2->calculateTotalVolume() + $workout3->calculateTotalVolume();
+$total = $workout1->calculateTotalVolume() + $workout2->calculateTotalVolume() + $workout3->calculateTotalVolume() + $workout4->calculateTotalVolume();
 echo $total . " LBs";
 
-// 2. Place the objects into a standard PHP array
-$myWorkouts = [$workout1, $workout2, $workout3];
+//  Place the objects into a standard PHP array
+$myWorkouts = [$workout1, $workout2, $workout3, $workout4];
 
-// 3. Loop through the array and invoke the method on each object
-echo "<h3>--- My Exercise Names ---</h3><ul>";
+//  Loop through the array and invoke the method on each object
+echo "<h3>--- My Exercises ---</h3><ul>";
 foreach ($myWorkouts as $workout) {
     // Invoke the method from the class on the current object in the loop
     echo "<li>" . $workout->getExerciseNameOnly() . "</li>";
 }
 echo "</ul>";
 
-
+// Call the function using any of your objects and pass the array into it
+echo $workout1->getExerciseNamesList($myWorkouts);
 
