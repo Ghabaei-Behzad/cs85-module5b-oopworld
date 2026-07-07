@@ -1,10 +1,10 @@
-## Behzad Ghabaei
-## CS 85 PHP
-## critique.md
-## Module 5 Assign 5A
-## Designing Your Own Object Oriented World
-## Instructor Seno
-## 7/7/2026
+### Behzad Ghabaei
+### CS 85 PHP
+### critique.md
+### Module 5 Assign 5A
+### Designing Your Own Object Oriented World
+### Instructor Seno
+### 7/7/2026
 
 # AI Method Critique
 
