@@ -32,8 +32,8 @@ class WorkoutTracker {
 
     // Method 1: Summary display method
     public function getSummary() {
-        $status = $this->isCompleted ? "Completed" : "Pending";
-        return "Exercise: {$this->exerciseName} | Sets: {$this->sets} | Reps: {$this->reps} | Status: {$status}<br>";
+        $status = $this->isCompleted ? "<span style=color:green;>Completed</span>" : "Pending";
+        return "Exercise: <strong>{$this->exerciseName} </strong>| Sets: {$this->sets} | Reps: {$this->reps} | Status: {$status}<br>";
     }
 
     // Method 2: Calculated value method (Total weight lifted)
@@ -128,10 +128,11 @@ echo "Intensity Level: " . $workout3->evaluateIntensity() . "| in LBs: " .  $wor
 
 echo "<hr>";
 
-echo "Total workouts done: ";
-echo $workout1->exerciseName."| ";
-echo $workout2->exerciseName. "| ";
-echo $workout3->exerciseName. "| ";
-echo "Total Volume Lifted. ";
+echo "<p> Total workouts done: </p>";
+echo  "<li>" . $workout1->exerciseName . "</li>" ;
+echo  "<li>" . $workout2->exerciseName . "</li> ";
+echo  "<li>" . $workout3->exerciseName . "</li> ";
+echo"<br>";
+echo "<p>Total Volume Lifted. </p>";
 $total = $workout1->calculateTotalVolume() + $workout2->calculateTotalVolume() + $workout3->calculateTotalVolume();
-echo $total;
+echo $total . " LBs";
