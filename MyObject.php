@@ -46,6 +46,14 @@ class WorkoutTracker {
         $this->isCompleted = true;
     }
 
+    // Method: Returns only the name of this specific exercise
+    public function getExerciseNameOnly() {
+        return $this->exerciseName;
+    }
+
+   
+
+
      // Method 4: Decision logic (AI Generated)
     public function evaluateIntensity() {
         if ($this->weightInLbs >= 200) {
@@ -136,3 +144,17 @@ echo"<br>";
 echo "<p>Total Volume Lifted. </p>";
 $total = $workout1->calculateTotalVolume() + $workout2->calculateTotalVolume() + $workout3->calculateTotalVolume();
 echo $total . " LBs";
+
+// 2. Place the objects into a standard PHP array
+$myWorkouts = [$workout1, $workout2, $workout3];
+
+// 3. Loop through the array and invoke the method on each object
+echo "<h3>--- My Exercise Names ---</h3><ul>";
+foreach ($myWorkouts as $workout) {
+    // Invoke the method from the class on the current object in the loop
+    echo "<li>" . $workout->getExerciseNameOnly() . "</li>";
+}
+echo "</ul>";
+
+
+
