@@ -47,12 +47,12 @@ class WorkoutTracker {
     }
 
     // Method: Returns only the name of this specific exercise
-    public function getExerciseNameOnly() {
+   /*  public function getExerciseNameOnly() {
         return $this->exerciseName;
     }
-
+ */
    // Method: Accepts an array of workouts and returns an HTML list of names
-public function getExerciseNamesList($myWorkouts) {
+public function getExerciseNamesList(array $myWorkouts)  {
     $output = "<h3>--- My Exercises ---</h3><ul>";
     
     // The loop code is now safely inside the function body!
@@ -62,6 +62,23 @@ public function getExerciseNamesList($myWorkouts) {
     }
     
     $output .= "</ul>";
+    return $output;
+}
+
+// Method to simplify adding up totals from an array of objects
+public function calculateGrandVolume(array $arrayOfWorkouts) {
+    // 1. Create a variable ONLY for the math tracking
+    $grandTotal = 0; 
+
+    // 2. Loop through and add up the numbers safely
+    foreach ($arrayOfWorkouts as $workout) {
+        $grandTotal += $workout->calculateTotalVolume();
+    }
+
+    // 3. Combine your text and the final calculated number at the very end
+    $output = "<p>Total Volume Lifted.</p>";
+    $output .= "<p>" . $grandTotal . " LBs</p>";
+
     return $output;
 }
 
@@ -169,16 +186,19 @@ echo "<p>Total Volume Lifted. </p>";
 $total = $workout1->calculateTotalVolume() + $workout2->calculateTotalVolume() + $workout3->calculateTotalVolume() + $workout4->calculateTotalVolume();
 echo $total . " LBs";
 
-//  Place the objects into a standard PHP array
+// 1. Put all your objects into a standard PHP array
 $myWorkouts = [$workout1, $workout2, $workout3, $workout4];
 
-//  Loop through the array and invoke the method on each object
+// 2. Call the new method using any object and pass the array into it
+$total = $workout1->calculateGrandVolume($myWorkouts);
+echo $total;
+/* //  Loop through the array and invoke the method on each object
 echo "<h3>--- My Exercises ---</h3><ul>";
 foreach ($myWorkouts as $workout) {
     // Invoke the method from the class on the current object in the loop
     echo "<li>" . $workout->getExerciseNameOnly() . "</li>";
 }
-echo "</ul>";
+echo "</ul>"; */
 
 // Call the function using any of your objects and pass the array into it
 echo $workout1->getExerciseNamesList($myWorkouts);
