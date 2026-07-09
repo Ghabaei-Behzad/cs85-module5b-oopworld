@@ -193,7 +193,7 @@ to add up the weightInLbs from each exercise. 12620 LBs.= 4500 + 1620 + 1500 + 5
 
 // Create Object 1 (Using your own realistic data)
 $workout1 = new WorkoutLog("Bench Press", 3, 10, 150); 
-echo $workout1->getSummary(); 
+echo $workout1->getSummary(); //will say, Exercise: Bench Press | Sets: 3 | Reps: 10 | Status: Pending
 echo "Total Volume Lifted: " . $workout1->calculateTotalVolume() . " lbs<br>";
 echo "Intensity level: " . $workout1->evaluateIntensity() . "<br>";
 
@@ -201,7 +201,7 @@ echo "<hr>";
 
 // Create Object 2
 $workout2 = new WorkoutLog("Bicep Curls", 3, 12, 45);
-echo $workout2->getSummary();
+echo $workout2->getSummary(); //will say Exercise: Bicep Curls | Sets: 3 | Reps: 12 | Status: Pending
 echo "Total volume lifted. " . $workout2->calculateTotalVolume() . " lbs<br>";
 echo "Intensity Level: " . $workout2->evaluateIntensity() . "<br>";
 
@@ -209,7 +209,7 @@ echo "<hr>";
 
 // Create Object 3
 $workout3 = new WorkoutLog("Push Ups", 5, 10, 30);
-echo $workout3->getSummary();
+echo $workout3->getSummary(); //Exercise: Push Ups | Sets: 5 | Reps: 10 | Status: Pending
 echo "Total volume lifted. " . $workout3->calculateTotalVolume() . " lbs<br>";
 echo "Intensity Level: " . $workout3->evaluateIntensity() . "<br>";
 
@@ -217,35 +217,35 @@ echo "<hr>";
 
 // Create Object 4
 $workout4 = new WorkoutLog("Squats", 5, 5, 200);
-echo $workout4->getSummary();
-echo "Total volume lifted. " . $workout4->calculateTotalVolume() . " lbs<br>";
-echo "Intensity Level: " . $workout4->evaluateIntensity() . "<br>";
+echo $workout4->getSummary(); //Exercise: Squats | Sets: 5 | Reps: 5 | Status: Pending
+echo "Total volume lifted. " . $workout4->calculateTotalVolume() . " lbs<br>"; //Total Volume lifted: 5000 lbs.
+echo "Intensity Level: " . $workout4->evaluateIntensity() . "<br>"; //Intensity Level: Heavy lifting Intensity
 
 echo "<hr>";
 
 // Test changing a property value for $wokout1. completeWorkout() function will make the workout completed.
 echo "Updating (workout 1) Bench Press status...<br>";
 $workout1->completeWorkout();
-echo $workout1->getSummary(); // Should now say Completed
+echo $workout1->getSummary(); // Should now say, Exercise: Bench Press | Sets: 3 | Reps: 10 | Status: Completed (in green )
 
 echo "<hr>";
 
 // Test changing a property value for $workout2. completeWorkout() function will make the workout completed.
 echo "Updating (workout 2) Bicep Curls status...<br>";
 $workout2->completeWorkout();
-echo $workout2->getSummary(); // Should now say Completed
+echo $workout2->getSummary(); // Should now say, Exercise: Bicep Curls | Sets: 3 | Reps: 12 | Status: Completed (in green)
 
 echo "<hr>";
 
 echo "Updating (workout 3) Push Ups status...<br>";
-$workout3->completeWorkout();
-echo $workout3->getSummary();
+$workout3->completeWorkout(); 
+echo $workout3->getSummary(); //Should now say "Completed" in green
 
 echo "<hr>";
 
 echo "Updating (workout 4) Squats status...<br>";
 $workout4->completeWorkout();
-echo $workout4->getSummary();
+echo $workout4->getSummary(); //Should now say "Completed" in green
 
 echo "<hr>";
 
@@ -253,7 +253,12 @@ echo "<hr>";
 $myWorkouts = [$workout1, $workout2, $workout3, $workout4];
 
 // 2. Call the function using any objects and pass the array into it
-echo $workout1->getExerciseNamesList($myWorkouts);
+echo $workout1->getExerciseNamesList($myWorkouts); // should say...
+//My Exercises Are:
+//Bench Press 150 LBs.
+//Bicep Curls 45 LBs.
+//Push Ups 30LBs.
+//Squats 200 LBs.
 
 // 3. use WorkoutLog:: (the scope resolution operator) to call the static helper function.
-echo WorkoutLog::calculateGrandVolume($myWorkouts);
+echo WorkoutLog::calculateGrandVolume($myWorkouts); //should say 12620 LBs.
