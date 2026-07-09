@@ -13,6 +13,7 @@
 
 ### Raw AI Code:
  **Method 4: Decision logic (AI Generated)**
+ ```php
     public function evaluateIntensity() {
         if ($this->weightInLbs >= 200) {
             return "Heavy lifting intensity.";
@@ -22,7 +23,7 @@
             return "Light intensity.";
         }
     }
-
+```
 ### Analysis:
 * **Correctness:** The code is functional and works perfectly within the context of the class. It is easy to understand and helpful.  I will be able to use this frame to write my own functions.
 * **Style:** The code follows standard PSR coding styles with proper if/else alignment. It demonstrates the use of 3 return statements of which only one will be returned.
