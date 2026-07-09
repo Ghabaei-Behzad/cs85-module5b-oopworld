@@ -148,7 +148,7 @@ Exercise: Push Ups | Sets: 5 | Reps: 10 | Status: Pending
 
 calculateTotalVolume() -  Total Volume lifted: 1500 lbs. because 1500 =  5 * 10 * 30.
 
-evaluateIntensity() - Intensity Level: Ligt Intensity  because 30 >= 100 is false.
+evaluateIntensity() - Intensity Level: light Intensity  because 30 >= 100 is false.
 
 Object 4:
 getSummary() -  The constructor parameters are: "Squats", 5, 5, 200
