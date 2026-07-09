@@ -13,7 +13,7 @@
 
 ### Raw AI Code:
  **Method 4: Decision logic (AI Generated)**
- ```php
+ ``` php
     public function evaluateIntensity() {
         if ($this->weightInLbs >= 200) {
             return "Heavy lifting intensity.";
